@@ -43,10 +43,7 @@ class Config:
                 print("No of Layers is not present.")
             if not hasattr(self.config, 'drop_rate'):
                 print("Drop Rate is not present.")
-            
-
-            
-
+        
             return self.config
 
         except FileNotFoundError:
