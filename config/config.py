@@ -30,26 +30,35 @@ class Config:
 
                 for key, val in configs.items():
                     self.config.__setattr__(key,val)
+
+            required_keys = ["vocab_size", "context_length", "emb_dim", "n_heads", "n_layers", "drop_rate"]
+
+            for key in required_keys:
+                if not hasattr(self.config, key):
+                    raise ValueError(f"Config missing required key:{key}")
             
-            if not hasattr(self.config, 'vocab_size'):
-                print("vocab size is not present.")
-            if not hasattr(self.config, 'context_length'):
-                print("context length is not present.")
-            if not hasattr(self.config, 'emb_dim'):
-                print("Embedding Dimesion is not present.")
-            if not hasattr(self.config, 'n_heads'):
-                print("No of Heads is not present.")
-            if not hasattr(self.config, 'n_layers'):
-                print("No of Layers is not present.")
-            if not hasattr(self.config, 'drop_rate'):
-                print("Drop Rate is not present.")
-        
+            if not isinstance(self.config.vocab_size , int) or self.config.vocab_size <= 0:
+                raise ValueError(f"vocab size smust be positive value")
+            
+            if not isinstance(self.config.context_length , int) or self.config.context_length <= 0:
+                raise ValueError(f"context length must be positive value")
+            
+            if not isinstance(self.config.emb_dim , int) or self.config.emb_dim <= 0:
+                raise ValueError(f"Embedding Dimension must be positive value")
+                  
+            if not isinstance(self.config.n_heads , int) or self.config.n_heads <= 0:
+                raise ValueError(f"Number of heads must be positive value")
+            
+            if not isinstance(self.config.n_layers , int) or self.config.n_layers <= 0:
+                raise ValueError(f"No of Layers must be positive value")
+            
+            if not isinstance(self.config.drop_rate , float) or not (0.0 <= self.config.drop_rate <= 1.0):
+                raise ValueError(f"Drop rate must be in between 0.0 to 1.0")
+
+                        
             return self.config
 
         except FileNotFoundError:
-            print(f"Config file not found at {self.Config_path}")
+            raise ValueError(f"Config file not found at {self.Config_path}")
         except JSONDecodeError:
-            print(f'Not valid json File. Decoding is not posible')
-
-
-
+            raise ValueError(f'Not valid json File. Decoding is not posible')
