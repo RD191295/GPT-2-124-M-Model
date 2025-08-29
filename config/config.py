@@ -1,26 +1,21 @@
 import json
 from json import JSONDecodeError
+from types import SimpleNamespace
 
-
-class ConfigObject(object):
-    def __init__(self):
-        pass
-
-    pass
 
 class Config:
 
-    def __init__(self,Config_path):
+    def __init__(self,Config_path:str)->None:
         """
-            Init COnstructuor
+            Initialize Config with JSON file path
             In:
             Config_path : COnfig File Path
         """
         super().__init__()
         self.Config_path = Config_path
-        self.config = ConfigObject()
+        self.config = SimpleNamespace()
 
-    def load(self):
+    def load(self)->SimpleNamespace:
         """
             File Load method
         """
@@ -38,7 +33,7 @@ class Config:
                     raise ValueError(f"Config missing required key:{key}")
             
             if not isinstance(self.config.vocab_size , int) or self.config.vocab_size <= 0:
-                raise ValueError(f"vocab size smust be positive value")
+                raise ValueError(f"vocab size must be positive value")
             
             if not isinstance(self.config.context_length , int) or self.config.context_length <= 0:
                 raise ValueError(f"context length must be positive value")
@@ -52,8 +47,11 @@ class Config:
             if not isinstance(self.config.n_layers , int) or self.config.n_layers <= 0:
                 raise ValueError(f"No of Layers must be positive value")
             
-            if not isinstance(self.config.drop_rate , float) or not (0.0 <= self.config.drop_rate <= 1.0):
-                raise ValueError(f"Drop rate must be in between 0.0 to 1.0")
+            if not isinstance(self.config.drop_rate , (int,float)) or not (0.0 <= self.config.drop_rate <= 1.0):
+                raise ValueError(f"Drop rate must be between 0.0 to 1.0")
+            
+            if self.config.emb_dim % self.config.n_heads != 0:
+                raise ValueError("Embedding dimension must be divisible by number of heads")
 
                         
             return self.config
@@ -61,4 +59,4 @@ class Config:
         except FileNotFoundError:
             raise ValueError(f"Config file not found at {self.Config_path}")
         except JSONDecodeError:
-            raise ValueError(f'Not valid json File. Decoding is not posible')
+            raise ValueError(f'Not valid json File. Decoding is not possible')
