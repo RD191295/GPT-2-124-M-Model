@@ -2,6 +2,22 @@ import tiktoken
 
 class BytePairTokenizer:
     """Byte Pair Tokenizer with Encode and Decode
+
+        This class Provide method to encode text into IDS and decode
+        token IDs back to text. It support custom special token
+        (e.g. <|endoftext|>) and interegrate with 'tiktoken' gpt-2 
+        tokenizer
+
+        Attributes:
+             tokenizer: The GPT2 Tokenizer Instance from tiktoken
+             special_token (set[str]): set of special token to be recognise during encoding.
+        
+        Methods:
+            encode(self,text:str) ->list[int]:
+                convert input text into list of token IDS
+
+            decode(self,ids:list[int])->str:
+                convert list of token IDs into text
     """
     def __init__(self, special_token: set[str] = {"<|endoftext|>"}) -> None:
         self.tokenizer = tiktoken.get_encoding('gpt2')
