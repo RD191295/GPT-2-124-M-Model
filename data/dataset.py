@@ -4,60 +4,61 @@ from gpt2.tokenizer import BytePairTokenizer
 
 
 class GPT2Dataset(Dataset):
-    """Dataset class for preparing tokenized text data for GPT-2 training.
+    """Memory-efficient PyTorch Dataset for GPT-2 tokenized text.
 
         This class handles:
-           - Loading raw text data from files
-           - Tokenize text using tokenizer(Byte-pair Encoding)
-           - Creating input-target pair based on context length
-           - Generating batches for training and evaluation
-        
+            - Takes a raw text string
+            - Tokenizes text using Byte-Pair Encoding
+            - Dynamically generates input-target pairs based on context length and stride
+
         Attributes:
-            - tokenizer : An Instance of tokenizer class which tokenize processed text
-            - txt : text dataset
-            - max_length: The maximum training length for each training example.
-            - stride: the number
-        
-        Methods:
-            __len__(self)->int:
-                Get Length of tokens
-            
-            __getitem__(self,idx:int)->tuple[torch.Tensor,torch.Tensor]:
-                Get input id and target id based on index
-
+            token_ids (list[int]): List of token IDs obtained from the tokenizer
+            max_length (int): Number of tokens per input sequence
+            stride (int): Step size to slide the window
+            shift (int): Number of tokens to shift for the target sequence
     """
+    def __init__(self, text: str, tokenizer: BytePairTokenizer,
+                 max_length: int, stride: int, shift: int = 1) -> None:
+        if not text:
+            raise ValueError("text can not be empty")
+        if shift < 1:
+            raise ValueError("Shift cannot be less than 1")
+            
+        self.token_ids = tokenizer.encode(text)
 
-    def __init__(self,text:str,tokenizer:BytePairTokenizer,max_length:int,stride:int) -> None:
-        self.input_ids = []
-        self.target_ids = []
-
-        token_ids = tokenizer.encode(text)
-
-        if (len(token_ids) < max_length):
-            raise ValueError("Text length too short for given max_length")
+        self.max_length = max_length
+        self.stride = stride
+        self.shift = shift
         
-        for i in range(0,len(token_ids)-max_length,stride):
-            input_id = token_ids[i:i+max_length]
-            target_id = token_ids[i+1:i+max_length+1]
-            self.input_ids.append(torch.tensor(input_id,dtype = torch.long))
-            self.target_ids.append(torch.tensor(target_id,dtype =torch.long))
-    
+        if len(self.token_ids) < max_length + shift:
+            raise ValueError("Text length too short for given max_length + shift")
 
-    def __len__(self)->int:
-        """Get length of input ids
-        """
-        return len(self.input_ids)
+        # Calculate no of sample
+        self.num_samples = ((len(self.token_ids)- max_length) // stride ) + 1
+
+            
+    def __len__(self) -> int:
+        """Return number of input-target pairs in dataset."""
+        return self.num_samples
     
-    
-    def __getitem__(self,idx:int)->tuple[torch.Tensor,torch.Tensor]:
+    def __getitem__(self, idx: int) -> tuple[torch.Tensor, torch.Tensor]:
         """Return input and target token IDs for a given index.
 
         Args:
             idx (int): Index of the sequence.
 
         Returns:
-            tuple[torch.Tensor, torch.Tensor]: 
+            tuple[torch.Tensor, torch.Tensor]:
                 - input_ids: Tensor of shape (max_length,)
                 - target_ids: Tensor of shape (max_length,)
         """
-        return self.input_ids[idx], self.target_ids[idx]
+        start = idx * self.stride
+        end = start + self.max_length
+        if end+self.shift > len(self.token_ids):
+            # Handle edge case for last few tokens
+            end = len(self.token_ids) - self.shift
+            start = max(0, end - self.max_length)
+        
+        inputs = torch.tensor(self.token_ids[start:end], dtype=torch.long)
+        targets = torch.tensor(self.token_ids[start+self.shift:end+self.shift], dtype=torch.long)
+        return inputs, targets
