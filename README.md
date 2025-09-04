@@ -37,7 +37,7 @@
 ## 🏗️ Architecture
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/RD191295/GPT-2-124-M-Model/main/assets/architecture.png" alt="Transformer Architecture" width="70%">
+  <img src="https://raw.githubusercontent.com/RD191295/GPT-2-124-M-Model/main/assets/architecture.png" alt="GPT2 Architecture" width="70%">
 </p>
 
 The model consists of:
