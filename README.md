@@ -7,7 +7,6 @@
 
 <p align="center">
   <b>A clean PyTorch implementation of GPT-2 (124M parameters)</b><br/>
-  <i>Educational • Modular • Well-Documented</i>
 </p>
 
 <p align="center">
