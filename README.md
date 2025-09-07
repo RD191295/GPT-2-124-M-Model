@@ -55,3 +55,41 @@ The model consists of:
 git clone https://github.com/RD191295/GPT-2-124-M-Model.git
 cd GPT-2-124-M-Model
 pip install -r requirements.txt
+```
+
+### 2️⃣ Use the Model
+
+```python 
+import torch
+from model import GPT2Model
+
+model = GPT2Model(
+    vocab_size=50257,
+    context_length=1024,
+    emb_dim=768,
+    n_heads=12,
+    n_layers=12,
+    dropout=0.1,
+    qkv_bias=True
+)
+
+# dummy input
+input_ids = torch.randint(0, 50257, (2, 128))
+logits = model(input_ids)
+print(logits.shape)  # (2, 128, 50257)
+```
+
+---
+
+## 📂 Project Structure
+
+```bash
+├── model.py         # TransformerBlock & GPT2Model
+├── trainer.py       # (WIP) Training loop
+├── utils.py         # (optional) helper functions
+├── assets/          # images for README
+├── requirements.txt # dependencies
+└── README.md
+```
+
+
