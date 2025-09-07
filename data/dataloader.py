@@ -1,7 +1,10 @@
 from gpt2.tokenizer import BytePairTokenizer
-from data.dataloader import GPT2Dataset
+from data.dataset import GPT2Dataset
 from torch.utils.data import DataLoader   
+import torch
+from typing import Tuple
 
+dataloader: DataLoader[Tuple[torch.Tensor, torch.Tensor]] 
 
 def create_data_loader(text:str,
                        batch_size:int = 4,
@@ -11,7 +14,7 @@ def create_data_loader(text:str,
                        drop_last:bool = True,
                        num_workers:int = 0,
                        special_tokens:set[str]= {"<|endoftext|>"}
-                       )->DataLoader:
+                       )->DataLoader[Tuple[torch.Tensor, torch.Tensor]]:
         """Create a PyTorch DataLoader for GPT-2 training or evaluation.
 
         This function initializes a BytePairTokenizer, prepares the dataset
@@ -45,11 +48,11 @@ def create_data_loader(text:str,
         if stride > max_length:
             raise ValueError("stride should be less than max length")
         
-        tokenizer = BytePairTokenizer(special_tokens = special_tokens)
+        tokenizer = BytePairTokenizer(special_token = special_tokens)
 
         dataset = GPT2Dataset(text,tokenizer,max_length,stride)
 
-        dataloader = DataLoader(
+        dataloader = DataLoader( # type: ignore
             dataset,
             batch_size = batch_size,
             shuffle = shuffle,
@@ -58,4 +61,4 @@ def create_data_loader(text:str,
         )
 
 
-        return dataloader
+        return dataloader # type: ignore

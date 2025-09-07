@@ -1,6 +1,7 @@
 import torch
 from torch.utils.data import Dataset   
 from gpt2.tokenizer import BytePairTokenizer
+from typing import Tuple
 
 
 class GPT2Dataset(Dataset):
@@ -41,7 +42,7 @@ class GPT2Dataset(Dataset):
         """Return number of input-target pairs in dataset."""
         return self.num_samples
     
-    def __getitem__(self, idx: int) -> tuple[torch.Tensor, torch.Tensor]:
+    def __getitem__(self, idx: int) -> Tuple[torch.Tensor, torch.Tensor]:
         """Return input and target token IDs for a given index.
 
         Args:
