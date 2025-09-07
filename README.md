@@ -92,6 +92,27 @@ print(logits.shape)  # (2, 128, 50257)
 └── README.md
 ```
 
+--
+
+## 🛠️ Training (Planned)
+
+- [ ] CrossEntropy loss with shifted labels  
+- [ ] AdamW optimizer + weight decay  
+- [ ] Linear LR scheduler with warmup  
+- [ ] Checkpoint saving/loading  
+- [ ] Gradient clipping  
+
+👉 The `trainer.py` file will cover this in detail soon!
+
+---
+
+## 🌟 Roadmap
+
+- [ ] Finish training loop (`trainer.py`)  
+- [ ] Add tokenizer integration (`GPT2Tokenizer` from tiktoken)  
+- [ ] Implement text generation (greedy, top-k, top-p sampling)  
+- [ ] Release pretrained checkpoints  
+
 ---
 
 ## 🙏 Acknowledgments
