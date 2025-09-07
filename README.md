@@ -23,6 +23,22 @@
 
 ---
 
+## 📑 Table of Contents
+- [✨ Features](#-features)
+- [🏗️ Architecture](#-architecture)
+- [🚀 Quick Start](#-quick-start)
+- [📂 Project Structure](#-project-structure)
+- [🛠️ Training (Planned)](#️-training-planned)
+- [🌟 Roadmap](#-roadmap)
+- [📝 Example Generation (Planned)](#-example-generation-planned)
+- [🙏 Acknowledgments](#-acknowledgments)
+- [📖 References](#-references)
+- [📜 License](#-license)
+- [📖 Citation](#-citation)
+- [🤝 Contributing](#-contributing)
+
+---
+
 ## ✨ Features
 
 - ⚡ **Faithful GPT-2 Architecture** — Transformer blocks, causal self-attention, GELU feed-forward
