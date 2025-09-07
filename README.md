@@ -127,7 +127,7 @@ print(logits.shape)  # (2, 128, 50257)
 
 - Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., & Sutskever, I. (2019).  
   *Language Models are Unsupervised Multitask Learners*.  
-  [📄 Read the paper (PDF)](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)  
+  [[Paper PDF]](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) | [[OpenAI Blog]](https://openai.com/research/language-unsupervised)
 
 ---
 
