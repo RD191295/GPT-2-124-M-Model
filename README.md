@@ -154,16 +154,15 @@ This project is licensed under the MIT License
 
 ---
 
-🤝 Contributing
+## 🤝 Contributing
 
-Contributions are welcome! 🎉
-If you’d like to improve the code, add features, or fix bugs:
+Contributions and improvements are highly welcome! Please:
+1. Fork the repo  
+2. Create a branch `feature-xyz`  
+3. Submit a pull request with a brief description  
 
-- Fork the repo
-- Create a new branch (feature-xyz)
-- Commit your changes
-- Submit a Pull Request
-
+Check out [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
+ 
 ---
 
 ## 📖 Citation
