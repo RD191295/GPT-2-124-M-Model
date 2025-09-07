@@ -150,8 +150,8 @@ If you use this codebase or find it helpful, please consider citing the original
   number    = {8},
   url       = {https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf}
 }
-
-```markdown
-Please also cite this repository if you build upon it or use it in your research.
 ```
+
+```bibtex
+Please also cite this repository if you build upon it or use it in your research.
 ```
