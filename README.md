@@ -133,3 +133,32 @@ print(logits.shape)  # (2, 128, 50257)
 
 ## 📜 License
 This project is licensed under the MIT License
+
+---
+
+## 📖 Citation
+
+If you use this codebase or find it helpful, please consider citing the original GPT-2 paper:
+
+```bibtex
+@article{radford2019language,
+  title     = {Language Models are Unsupervised Multitask Learners},
+  author    = {Radford, Alec and Wu, Jeff and Child, Rewon and Luan, David and Amodei, Dario and Sutskever, Ilya},
+  year      = {2019},
+  journal   = {OpenAI Blog},
+  volume    = {1},
+  number    = {8},
+  url       = {https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf}
+}
+```
+
+---
+
+```csharp
+
+👉 You could also add a note below saying something like:
+
+```markdown
+Please also cite this repository if you build upon it or use it in your research.
+```
+```
