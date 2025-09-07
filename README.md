@@ -93,3 +93,21 @@ print(logits.shape)  # (2, 128, 50257)
 ```
 
 
+## 🙏 Acknowledgments
+
+- [OpenAI GPT-2 (2019)](https://openai.com/research/language-unsupervised)  
+- [Andrej Karpathy’s nanoGPT](https://github.com/karpathy/nanoGPT)  
+- [Build LLM From Scratch-Vizura](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu)
+
+---
+
+## 📖 References
+
+- Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., & Sutskever, I. (2019).  
+  *Language Models are Unsupervised Multitask Learners*.  
+  [📄 Read the paper (PDF)](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)  
+
+---
+
+## 📜 License
+This project is licensed under the MIT License
