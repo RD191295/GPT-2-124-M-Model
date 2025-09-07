@@ -99,7 +99,7 @@ print(logits.shape)  # (2, 128, 50257)
 - [OpenAI GPT-2 (2019)](https://openai.com/research/language-unsupervised)  
 - [Andrej Karpathy’s nanoGPT](https://github.com/karpathy/nanoGPT)  
 - [Build LLM From Scratch-Vizura](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu)
-
+- [Gen AI Course By Sudhanshu](https://euron.one/course/generative-ai-with-nlp-agentic-ai-and-fine-tuning)
 ---
 
 ## 📖 References
