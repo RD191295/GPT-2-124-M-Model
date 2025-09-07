@@ -194,6 +194,6 @@ If you use this codebase or find it helpful, please consider citing the original
 }
 ```
 
---
+---
 
-💡 If you like this repo, don’t forget to ⭐ star it on GitHub!
+## 💡 If you like this repo, don’t forget to ⭐ star it on GitHub!
