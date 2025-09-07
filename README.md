@@ -154,6 +154,18 @@ This project is licensed under the MIT License
 
 ---
 
+🤝 Contributing
+
+Contributions are welcome! 🎉
+If you’d like to improve the code, add features, or fix bugs:
+
+- Fork the repo
+- Create a new branch (feature-xyz)
+- Commit your changes
+- Submit a Pull Request
+
+---
+
 ## 📖 Citation
 
 If you use this codebase or find it helpful, please consider citing the original GPT-2 paper:
@@ -181,3 +193,7 @@ If you use this codebase or find it helpful, please consider citing the original
   note         = {GitHub repository}
 }
 ```
+
+--
+
+💡 If you like this repo, don’t forget to ⭐ star it on GitHub!
