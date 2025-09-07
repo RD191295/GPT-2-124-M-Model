@@ -152,6 +152,14 @@ If you use this codebase or find it helpful, please consider citing the original
 }
 ```
 
+👉 Please also cite this repository if you build upon it or use it in your research:
+
 ```bibtex
-Please also cite this repository if you build upon it or use it in your research.
+@misc{dalsaniya2025gpt2scratch,
+  author       = {Raj Dalsaniya},
+  title        = {GPT-2 124M from Scratch (PyTorch Implementation)},
+  year         = {2025},
+  howpublished = {\url{https://github.com/RD191295/GPT-2-124-M-Model}},
+  note         = {GitHub repository}
+}
 ```
