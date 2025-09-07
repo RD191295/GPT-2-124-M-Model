@@ -96,6 +96,8 @@ print(logits.shape)  # (2, 128, 50257)
 
 ## 🛠️ Training (Planned)
 
+⚠️ Training loop (`trainer.py`) is still work-in-progress. Features planned:
+
 - [ ] CrossEntropy loss with shifted labels  
 - [ ] AdamW optimizer + weight decay  
 - [ ] Linear LR scheduler with warmup  
