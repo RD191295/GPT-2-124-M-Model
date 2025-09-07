@@ -108,7 +108,7 @@ print(logits.shape)  # (2, 128, 50257)
 └── README.md
 ```
 
---
+---
 
 ## 🛠️ Training (Planned)
 
@@ -139,6 +139,7 @@ print(logits.shape)  # (2, 128, 50257)
 - [Andrej Karpathy’s nanoGPT](https://github.com/karpathy/nanoGPT)  
 - [Build LLM From Scratch-Vizura](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSgsLAr8YCgCwhPIJNNtexWu)
 - [Gen AI Course By Sudhanshu](https://euron.one/course/generative-ai-with-nlp-agentic-ai-and-fine-tuning)
+
 ---
 
 ## 📖 References
