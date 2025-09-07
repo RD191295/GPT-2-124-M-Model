@@ -23,6 +23,8 @@
 
 ---
 
+This repository provides an **educational and transparent PyTorch implementation of GPT-2 (124M parameters)**.It is designed for learners and researchers who want to **understand the internals of Transformer-based language models** or use it as a **foundation for custom modifications**.I built this project by carefully implementing and understanding **each building block of the GPT-2 architecture**, making it a clean reference for others to follow.
+
 ## 📑 Table of Contents
 - [✨ Features](#-features)
 - [🏗️ Architecture](#-architecture)
