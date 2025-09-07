@@ -152,10 +152,8 @@ If you use this codebase or find it helpful, please consider citing the original
 }
 ```
 
----
-
-
 👉 You could also add a note below saying something like:
 
 ```markdown
 Please also cite this repository if you build upon it or use it in your research.
+```
